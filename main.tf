@@ -10,6 +10,12 @@ terraform {
     }
   }
 }
+  backend "azurerm" {
+    resource_group_name  = "tfstate-demo-rg"
+    storage_account_name = "tfstatetechielass"
+    container_name       = "tfstate"
+    key                  = "tfdemo.env0.tfstate"
+  }
 
 provider "azurerm" {
   features {}
@@ -53,4 +59,10 @@ module "avm-res-operationalinsights-workspace" {
   name                = "log-analytics-workspace"
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
+  enable_telemetry                          = var.enable_telemetry
+  log_analytics_workspace_retention_in_days = 60
+  log_analytics_workspace_sku               = "PerGB2018"
+  log_analytics_workspace_daily_quota_gb    = 200
+  log_analytics_workspace_identity = {
+    type = "SystemAssigned"
 }
