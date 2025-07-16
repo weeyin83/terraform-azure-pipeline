@@ -1,6 +1,6 @@
 name: Run Azure CLI Login with OpenID Connect
-on: [push]
-     
+on: [push, workflow_dispatch]
+
 jobs: 
   test:
     permissions:
