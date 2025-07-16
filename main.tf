@@ -9,13 +9,13 @@ terraform {
       version = ">= 2.2.0, < 3.0.0"
     }
   }
-}
-  backend "azurerm" {
+backend "azurerm" {
     resource_group_name  = "tfstate-demo-rg"
     storage_account_name = "tfstatetechielass"
     container_name       = "tfstate"
     key                  = "tfdemo.env0.tfstate"
   }
+}
 
 provider "azurerm" {
   features {}
@@ -65,4 +65,5 @@ module "avm-res-operationalinsights-workspace" {
   log_analytics_workspace_daily_quota_gb    = 200
   log_analytics_workspace_identity = {
     type = "SystemAssigned"
+}
 }

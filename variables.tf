@@ -21,6 +21,11 @@ variable "location" {
   default = "Sweden Central"
 }
 
+variable "enable_telemetry" {
+  type    = bool
+  default = true
+}
+
 ##
 # Domain Variables
 ##
