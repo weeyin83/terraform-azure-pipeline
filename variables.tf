@@ -36,3 +36,30 @@ variable "custom_domain" {
   type        = string
   default     = "ctrlaltscots.com"
 }
+##
+# Domain Variables
+##
+
+variable "ttl_setting" {
+  description = "The TTL setting for the DNS records"
+  type        = number
+  default     = 3600
+}
+
+
+
+##
+#  Communication Variables
+##
+
+variable "acs_name" {
+  description = "Name of the ACS service to be deployed."
+  type        = string
+  default     = "techielass-acs"
+}
+
+variable "data_location" {
+  description = "The location of the email data."
+  type        = string
+  default     = "UK" # Or use Africa, Asia Pacific, Australia, Brazil, Canada, Europe, France, Germany, India, Japan, Korea, Norway, Switzerland, UAE, UK, usgov or United States as needed. 
+}
