@@ -21,6 +21,7 @@ variable "location" {
   default = "Sweden Central"
 }
 
+#Log Analytics variable to enable or disable telemetry
 variable "enable_telemetry" {
   type    = bool
   default = true
