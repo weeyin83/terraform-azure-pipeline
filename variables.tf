@@ -34,7 +34,7 @@ variable "enable_telemetry" {
 variable "custom_domain" {
   description = "The custom domain for the email communication service"
   type        = string
-  default     = "ctrlaltscots.com"
+  default     = "ctrlaltscots.co.uk
 }
 ##
 # Domain Variables
