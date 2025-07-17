@@ -55,7 +55,7 @@ variable "ttl_setting" {
 variable "acs_name" {
   description = "Name of the ACS service to be deployed."
   type        = string
-  default     = "techielass-acs"
+  default     = "techielass-acs-service"
 }
 
 variable "data_location" {
