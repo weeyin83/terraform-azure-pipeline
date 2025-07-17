@@ -63,3 +63,4 @@ variable "data_location" {
   type        = string
   default     = "UK" # Or use Africa, Asia Pacific, Australia, Brazil, Canada, Europe, France, Germany, India, Japan, Korea, Norway, Switzerland, UAE, UK, usgov or United States as needed. 
 }
+

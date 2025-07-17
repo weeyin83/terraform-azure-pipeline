@@ -198,3 +198,31 @@ resource "azurerm_communication_service_email_domain_association" "email_domain_
   email_service_domain_id  = azurerm_email_communication_service_domain.acsdomain.id
   depends_on               = [azapi_resource_action.validate_dkim2]
 }
+
+# Turn on logs being sent to a Log Analytics Workspace
+resource "azurerm_monitor_diagnostic_setting" "acs-logs" {
+  name                           = module.avm-res-operationalinsights-workspace.log_analytics_workspace.resource.name
+  target_resource_id             = azurerm_communication_service.acs.id
+  log_analytics_workspace_id     = module.avm-res-operationalinsights-workspace.log_analytics_workspace.resource.id
+  log_analytics_destination_type = "Dedicated"
+
+  enabled_log {
+    category = "EmailSendMailOperational"
+  }
+
+  enabled_log {
+    category = "Usage"
+  }
+
+  enabled_log {
+    category = "EmailStatusUpdateOperational"
+  }
+
+  enabled_log {
+    category = "EmailUserEngagementOperational"
+  }
+
+  metric {
+    category = "AllMetrics"
+  }
+}
