@@ -10,8 +10,8 @@ terraform {
     }
   }
 backend "azurerm" {
-    resource_group_name  = "tfstate-demo-rg"
-    storage_account_name = "tfstatetechielass"
+    resource_group_name  = "rg-terraformstate"
+    storage_account_name = "terraformstatetechielass"
     container_name       = "tfstate"
     key                  = "tfdemo.env0.tfstate"
   }
@@ -201,9 +201,9 @@ resource "azurerm_communication_service_email_domain_association" "email_domain_
 
 # Turn on logs being sent to a Log Analytics Workspace
 resource "azurerm_monitor_diagnostic_setting" "acs-logs" {
-  name                           = module.avm-res-operationalinsights-workspace.log_analytics_workspace.resource.name
+  name                           = module.avm-res-operationalinsights-workspace.resource.name
   target_resource_id             = azurerm_communication_service.acs.id
-  log_analytics_workspace_id     = module.avm-res-operationalinsights-workspace.log_analytics_workspace.resource.id
+  log_analytics_workspace_id     = module.avm-res-operationalinsights-workspace.resource.id
   log_analytics_destination_type = "Dedicated"
 
   enabled_log {
